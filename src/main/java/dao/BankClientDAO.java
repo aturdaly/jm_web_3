@@ -144,10 +144,10 @@ public class BankClientDAO {
         stmt.close();
     }
 
-    public void deleteClient(BankClient client) throws SQLException {
+    public void deleteClient(Long id) throws SQLException {
         String sql = "DELETE FROM bank_client WHERE id=?";
         PreparedStatement pstmt = connection.prepareStatement(sql);
-        pstmt.setLong(1, client.getId());
+        pstmt.setLong(1, id);
         pstmt.executeUpdate();
         pstmt.close();
     }

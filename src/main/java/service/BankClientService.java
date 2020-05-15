@@ -51,7 +51,7 @@ public class BankClientService {
         BankClientDAO dao = getBankClientDAO();
         BankClient bankClient = this.getClientByName(name);
         try {
-            dao.deleteClient(bankClient);
+            dao.deleteClient(bankClient.getId());
             return !dao.validateClient(bankClient.getName(), bankClient.getPassword());
         } catch (SQLException e) {
             throw new DBException(e);
